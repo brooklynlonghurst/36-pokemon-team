@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from "react"
 import './App.css';
+import Header from './components/Header';
+import TeamScreen from "./screens/TeamScreen";
+import DexScreen from "./screens/DexScreen";
+
 
 function App() {
+  const [teamPage, setTeamPage] = useState(false)
+
+  const changePage = (value) => {
+    if(teamPage === value) return
+    setTeamPage(value)
+  }
+  console.log("CURRENT STATE", teamPage)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Header />
+     <div className="row-container">
+      <button onClick={() => changePage(true)}>Team</button>
+      <button onClick={() => changePage(false)}>Dex</button>
+     </div>
+     {teamPage ? <TeamScreen /> : <DexScreen/>}
     </div>
   );
 }
