@@ -27,7 +27,14 @@ function DexScreen({pokemon}) {
         return poke.name.includes(search)
     })
     .map((poke, index) => {
-        return <PokedexCard poke={poke} index={index} />
+        return (
+            <PokedexCard 
+            key={index}
+            poke={poke} 
+            index={index} 
+            />
+        )
+
     })
 
     return (

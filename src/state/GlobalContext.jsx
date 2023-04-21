@@ -13,6 +13,8 @@ const GlobalContextProvider = (props) => {
         switch(action.type) {
             case 'ADD_TO_TEAM': 
                 return {...state, team: [...state.team, action.payload]}
+            case 'REMOVE_FROM_TEAM':
+                return 
             default:
                 return state
         }

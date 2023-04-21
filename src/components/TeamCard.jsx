@@ -1,6 +1,20 @@
-import React from "react"
+import React, {useContext} from "react"
+import GlobalContext from "../state/GlobalContext"
+import axios from "axios"
 
-function TeamCard({pokemon}){
+
+function TeamCard({pokemon, props, poke}){
+    const {state, dispatch} = useContext(GlobalContext)
+
+    function removeFromTeam(){
+        axios
+            .delete(props.poke.url)
+            .then((res) => {
+                console.log(res.data)
+                dispatch({type: 'REMOVE_FROM_TEAM', payload: res.data})
+            })
+    }
+
     return (
         <div className="card">
             <img src={pokemon.sprites.other["official-artwork"].front_default} className="poke-img"/>
@@ -12,7 +26,7 @@ function TeamCard({pokemon}){
             <div className="stat-container">
             {pokemon.stats.map((s, i) => <h5 className="stat">{s.stat.name} {s.base_stat}</h5> )}
             </div>
-            <button>Remove</button>
+            <button onClick={removeFromTeam}>Remove</button>
         </div>
     )
 }
