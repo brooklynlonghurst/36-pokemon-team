@@ -180,10 +180,30 @@ form {
   color: green;
 }
 
+.type-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.stat-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 60px;
+}
+
+.stat {
+  height: 20px;
+  width: 50%;
+  margin: 0;
+}
+
 .type {
   border-radius: 50%;
   font-size: 18px;
-  width: 45%;
+  width: 100%;
 }
 .grass {
   background-color: green;
