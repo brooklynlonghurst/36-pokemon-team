@@ -14,7 +14,7 @@ const GlobalContextProvider = (props) => {
             case 'ADD_TO_TEAM': 
                 return {...state, team: [...state.team, action.payload]}
             case 'REMOVE_FROM_TEAM':
-                return 
+                return {...state.items.slice(0, action.payload)}
             default:
                 return state
         }

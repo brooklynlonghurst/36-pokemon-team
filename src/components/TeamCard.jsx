@@ -3,6 +3,7 @@ import GlobalContext from "../state/GlobalContext"
 import axios from "axios"
 
 
+
 function TeamCard({pokemon, props, poke}){
     const {state, dispatch} = useContext(GlobalContext)
 
