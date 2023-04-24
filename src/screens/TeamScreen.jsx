@@ -7,7 +7,7 @@ function TeamScreen() {
     const {state, dispatch} = useContext(GlobalContext)
 
     const displayTeam = useMemo(() => state.team.map((p, index) => {
-        return <TeamCard pokemon={p} index={index}/>
+        return <TeamCard key={p.name + index} pokemon={p} index={index}/>
     }), [state.team])
 
     return (

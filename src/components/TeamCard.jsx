@@ -4,16 +4,11 @@ import axios from "axios"
 
 
 
-function TeamCard({pokemon, props, poke}){
+function TeamCard({pokemon, index}){
     const {state, dispatch} = useContext(GlobalContext)
 
     function removeFromTeam(){
-        axios
-            .delete(props.poke.url)
-            .then((res) => {
-                console.log(res.data)
-                dispatch({type: 'REMOVE_FROM_TEAM', payload: res.data})
-            })
+        dispatch({type: 'REMOVE_FROM_TEAM', payload: index})
     }
 
     return (
